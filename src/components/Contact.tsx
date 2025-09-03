@@ -85,21 +85,15 @@ const Contact = () => {
               <div>
                 <div className="space-y-4">
                   {additionalInfo.map((info) => (
-                    <div key={info.key} className={`flex ${
-                      isRTL ? 'flex-row-reverse' : 'flex-row'
-                    } items-center gap-3`}>
-                      <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
+                    <div key={info.key} className="flex items-center gap-3">
+                      <div className={`p-2 ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-blue-600 to-purple-600 rounded-lg`}>
                         <info.icon className="w-5 h-5 text-white" />
                       </div>
                       <div className={isRTL ? 'text-right' : 'text-left'}>
-                        <p className={`font-medium ${
-                          theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-                        }`}>
+                        <p className={`font-medium ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
                           {info.key}
                         </p>
-                        <p className={`text-sm ${
-                          theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-                        }`}>
+                        <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
                           {info.value}
                         </p>
                       </div>
@@ -165,9 +159,7 @@ const Contact = () => {
                       href={link.href}
                       target={link.id !== 'email' ? '_blank' : undefined}
                       rel={link.id !== 'email' ? 'noopener noreferrer' : undefined}
-                      className={`group flex ${
-                        isRTL ? 'flex-row-reverse' : 'flex-row'
-                      } items-center gap-4 p-6 ${
+                      className={`group flex items-center gap-4 p-6 ${
                         theme === 'dark'
                           ? 'bg-gray-900 hover:bg-gray-800 text-gray-400'
                           : 'bg-white hover:bg-gray-50 text-gray-600'
@@ -182,16 +174,12 @@ const Contact = () => {
                         <h3 className="font-semibold text-lg group-hover:text-blue-600 transition-colors duration-200">
                           {link.name}
                         </h3>
-                        <p className={`${
-                          theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-                        } text-sm mb-1`}>
+                        <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} text-sm mb-1`}>
                           {t[link.descriptionKey as keyof typeof t]}
                         </p>
                       </div>
 
-                      <div className={`opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${
-                        isRTL ? 'rotate-180' : ''
-                      }`}>
+                      <div className={`opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${isRTL ? 'scale-x-[-1]' : ''}`}>
                         <ExternalLink className="w-5 h-5 text-blue-600" />
                       </div>
                     </a>
