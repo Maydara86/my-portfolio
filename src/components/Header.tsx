@@ -48,9 +48,7 @@ const Header = () => {
               <option value="fr">FR</option>
               <option value="ar">AR</option>
             </select>
-            <Globe className={`absolute ${
-              isRTL ? 'left-2' : 'right-2'
-            } top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none ${
+            <Globe className={`absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none ${
               theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
             }`} />
           </div>

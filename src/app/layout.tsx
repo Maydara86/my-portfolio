@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
+import dynamic from 'next/dynamic';
+
+const BackToTop = dynamic(() => import('@/components/BackToTop'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -58,6 +61,7 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider>
           {children}
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

@@ -7,6 +7,7 @@ export interface Translations {
   portfolioTitle: string;
   portfolioDescription: string;
   testimonialsTitle: string;
+  testimonialsDescription: string;
   contactTitle: string;
   contactDescription: string;
   viewProject: string;
@@ -17,6 +18,21 @@ export interface Translations {
   experience: string;
   education: string;
   services: string;
+  contactInfoLocation: string;
+  contactInfoLocationValue: string;
+  contactInfoAvailabilityText: string;
+  contactInfoAvailabilityValue: string;
+  yearsOfExperienceLabel: string;
+  yearsOfExperienceValue: string;
+  responseTimeLabel: string;
+  responseTimeValue: string;
+  contactInfoEmail: string;
+  contactInfoGithub: string;
+  contactInfoLinkedIn: string;
+  contactInfoUpwork: string;
+  contactInfoQuickStats: string;
+  contactInfoprojectsCompleted: string;
+  contactInfoResponseTime: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -27,6 +43,7 @@ export const translations: Record<Language, Translations> = {
     portfolioTitle: "My Work",
     portfolioDescription: "Here are some of the projects I've built",
     testimonialsTitle: "What Clients Say",
+    testimonialsDescription: "Don't just take my word for it - here's what my clients have to say",
     contactTitle: "Let's Connect",
     contactDescription: "Ready to work together? Get in touch!",
     viewProject: "View Project",
@@ -36,7 +53,22 @@ export const translations: Record<Language, Translations> = {
     mySkills: "My Skills",
     experience: "Experience",
     education: "Education",
-    services: "Services"
+    services: "Services",
+    contactInfoLocation: "Location",
+    contactInfoLocationValue: "Ariana, Tunisia",
+    contactInfoAvailabilityText: "Available",
+    contactInfoAvailabilityValue: "24/7 for projects",
+    yearsOfExperienceLabel: "Years of Experience",
+    yearsOfExperienceValue: "10+",
+    responseTimeLabel: "Response Time",
+    responseTimeValue: "< 24 hours",
+    contactInfoEmail: "Send me an email",
+    contactInfoGithub: "Check out my code",
+    contactInfoLinkedIn: "Connect with me professionally",
+    contactInfoUpwork: "Hire me on Upwork",
+    contactInfoQuickStats: "Quick Stats",
+    contactInfoprojectsCompleted: "Projects Completed",
+    contactInfoResponseTime: "Response Time"
   },
   fr: {
     name: "Mohamed Cherif",
@@ -45,6 +77,7 @@ export const translations: Record<Language, Translations> = {
     portfolioTitle: "Mon Travail",
     portfolioDescription: "Voici quelques projets que j'ai réalisés",
     testimonialsTitle: "Ce Que Disent Les Clients",
+    testimonialsDescription: "Ne vous fiez pas seulement à ma parole - voici ce que mes clients ont à dire",
     contactTitle: "Connectons-Nous",
     contactDescription: "Prêt à travailler ensemble ? Contactez-moi !",
     viewProject: "Voir le Projet",
@@ -54,15 +87,31 @@ export const translations: Record<Language, Translations> = {
     mySkills: "Mes Compétences",
     experience: "Expérience",
     education: "Formation",
-    services: "Services"
+    services: "Services",
+    contactInfoLocation: "Localisation",
+    contactInfoLocationValue: "Ariana, Tunisie",
+    contactInfoAvailabilityText: "Disponibilité",
+    contactInfoAvailabilityValue: "24/7 pour des projets",
+    yearsOfExperienceLabel: "Années d'Expérience",
+    yearsOfExperienceValue: "10+",
+    responseTimeLabel: "Temps de Réponse",
+    responseTimeValue: "< 24 heures",
+    contactInfoEmail: "Envoyez-moi un email",
+    contactInfoGithub: "Découvrez mon code",
+    contactInfoLinkedIn: "Connectez-vous avec moi professionnellement",
+    contactInfoUpwork: "Engagez-moi sur Upwork",
+    contactInfoQuickStats: "Statistiques Rapides",
+    contactInfoprojectsCompleted: "Projets Réalisés",
+    contactInfoResponseTime: "Temps de Réponse"
   },
   ar: {
-    name: "محمد شريف",
+    name: "محمد الشريف",
     heroTitle: "مطور ويب متكامل",
     heroDescription: "شغوف بإنشاء تطبيقات ويب حديثة وقابلة للتوسع باستخدام أحدث التقنيات. أجعل الأفكار تأتي إلى الحياة من خلال الكود النظيف وتجارب المستخدم الاستثنائية.",
     portfolioTitle: "أعمالي",
     portfolioDescription: "إليكم بعض المشاريع التي قمت ببنائها",
     testimonialsTitle: "ما يقوله العملاء",
+    testimonialsDescription: "لا تأخذ كلامي فقط - إليك ما يقوله عملائي",
     contactTitle: "لنتواصل",
     contactDescription: "مستعد للعمل معاً؟ تواصل معي!",
     viewProject: "عرض المشروع",
@@ -72,6 +121,21 @@ export const translations: Record<Language, Translations> = {
     mySkills: "مهاراتي",
     experience: "الخبرة",
     education: "التعليم",
-    services: "الخدمات"
+    services: "الخدمات",
+    contactInfoLocation: "الموقع",
+    contactInfoLocationValue: "أريانة، تونس",
+    contactInfoAvailabilityText: "متاح",
+    contactInfoAvailabilityValue: "24/7 للمشاريع",
+    yearsOfExperienceLabel: "سنوات الخبرة",
+    yearsOfExperienceValue: "10+",
+    responseTimeLabel: "زمن الاستجابة",
+    responseTimeValue: "< 24 ساعة",
+    contactInfoEmail: "أرسل لي بريدًا إلكترونيًا",
+    contactInfoGithub: "اطلع على شيفرتي البرمجية",
+    contactInfoLinkedIn: "تواصل معي مهنيًا",
+    contactInfoUpwork: "استأجرني على Upwork",
+    contactInfoQuickStats: "إحصائيات سريعة",
+    contactInfoprojectsCompleted: "المشاريع المكتملة",
+    contactInfoResponseTime: "زمن الاستجابة"
   }
 };
