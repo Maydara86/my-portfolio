@@ -38,8 +38,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className={`container mx-auto px-6 py-20 mt-16 ${theme === 'dark' ? 'bg-gray-700' : 'text-gray-50'}`}>
+    <section className={`relative min-h-screen flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'bg-gray-700' : 'text-gray-50'}`}>
+      <div className={`container mx-auto px-6 py-20 mt-16`}>
         <div className={`grid lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-cols-2' : ''}`}>
 
           {/* Text Content */}
@@ -63,9 +63,9 @@ const Hero = () => {
             <div className={`flex gap-4 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
               <button
                 onClick={scrollToContact}
-                className={`px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium ${
+                className={`px-8 py-3 text-white rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg font-medium ${
                   theme === 'dark'
-                    ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900/70 border border-gray-700 backdrop-blur-sm'
+                    ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900/70 border border-gray-700 backdrop-blur-sm hover:from-gray-900 hover:to-gray-900/70'
                     : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700'
                 }`}
               >
