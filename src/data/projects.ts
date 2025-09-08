@@ -23,7 +23,7 @@ export const projects: Project[] = [
   {
     id: 'news-website',
     title: 'Tunisie Telegraph - News Website',
-    description: 'Modern Tunisian news website with ASBAAAAAAAAA Wordpress and Newspaper theme, Elementor builder, Newsletter subscription, and SEO optimization',
+    description: 'Modern Tunisian news website built with Wordpress and Newspaper theme, Elementor builder, Newsletter subscription, and SEO optimization',
     image: '/images/tunisie-telegraph.jpg',
     link: 'https://tunisie-telegraph.com/',
     github: 'https://github.com/mohamed-cherif/task-manager',
@@ -31,43 +31,43 @@ export const projects: Project[] = [
     category: [ 'web' ]
   },
   {
-    id: 'restaurant-website',
-    title: 'Restaurant Website',
-    description: 'Beautiful restaurant website with online ordering',
+    id: 'etl-app',
+    title: 'MakeItOne an ETL app',
+    description: 'A fully fledge ETL application developed with React and Spring Boot, it includes a designer canvas page that supports nodes drag & drop, wiring nodes, data manipulation, save and export feature and so much more',
     image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&crop=center',
     link: 'https://demo-restaurant.com',
     github: 'https://github.com/mohamed-cherif/restaurant-site',
-    technologies: ['React', 'Firebase', 'Framer Motion', 'CSS3'],
-    category: ['web', 'chrome-extension']
+    technologies: ['React', 'react-flow', 'Material-UI', 'redux-toolkit', 'Spring Boot', 'Microsoft SQL Server'],
+    category: ['web', 'SaaS']
   },
   {
-    id: 'real-estate',
-    title: 'Real Estate Platform',
-    description: 'Property listing platform with advanced search',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&crop=center',
+    id: 'kaspr',
+    title: 'Kaspr an all in one lead prospecting tool',
+    description: 'Kaspr is a chrome extension that helps you find and verify B2B email addresses directly from LinkedIn profiles. Kaspr\'s Dashoboard is a web application that allows you to manage your leads, campaigns, and account settings. Kaspr\'s Backoffice is a web application that allows staff members to manage their users, subscriptions, and credits.',
+    image: '/images/kaspr.jpg',
     link: 'https://demo-realestate.com',
     github: 'https://github.com/mohamed-cherif/real-estate',
-    technologies: ['Vue.js', 'Laravel', 'MySQL', 'Google Maps API'],
-    category: ['web']
+    technologies: ['react', 'express.js', 'Mongodb', 'Various APIs integrations'],
+    category: ['web', 'chrome-extension', 'SaaS']
   },
   {
-    id: 'healthcare-dashboard',
-    title: 'Healthcare Dashboard',
-    description: 'Medical data visualization and patient management',
-    image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&h=400&fit=crop&crop=center',
+    id: 'cognism',
+    title: 'Cognism\'s front-end Design System',
+    description: 'Design System for all Cognism front-end projects, the library is composed of 40+ high-quality components, they were designed in Figma, built with React, showcased in Storybook and delivered through npm packages',
+    image: '/images/cognism.png',
     link: 'https://demo-healthcare.com',
     github: 'https://github.com/mohamed-cherif/healthcare-dashboard',
-    technologies: ['React', 'D3.js', 'Express', 'MongoDB', 'Chart.js'],
-    category: ['web']
+    technologies: ['React', 'CSS', 'Storybook', 'npm', 'Figma'],
+    category: ['web', 'SaaS']
   },
   {
-    id: 'finance-app',
-    title: 'Finance App',
-    description: 'Personal finance tracker with analytics',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop&crop=center',
+    id: 'satisfactory',
+    title: 'SatisFactory feedback management tool',
+    description: 'SatisFactory is a solution specialized in Feedback Management, it helps businesses collect, analyze, and act on customer feedback to improve customer experience and operational performance',
+    image: '/images/satisfactory.png',
     link: 'https://demo-finance.com',
     github: 'https://github.com/mohamed-cherif/finance-app',
-    technologies: ['React Native', 'Node.js', 'PostgreSQL', 'JWT', 'Plaid API'],
-    category: ['mobile']
+    technologies: ['PHP', 'Zend', 'MySQL', 'Angular', 'Various APIs integrations'],
+    category: ['web', 'SaaS']
   }
 ];
