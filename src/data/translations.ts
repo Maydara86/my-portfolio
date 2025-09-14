@@ -33,6 +33,14 @@ export interface Translations {
   contactInfoQuickStats: string;
   contactInfoprojectsCompleted: string;
   contactInfoResponseTime: string;
+  webApps: string;
+  webAppsDesc: string;
+  chromeExtensions: string;
+  chromeExtensionsDesc: string;
+  cloudDeployment: string;
+  cloudDeploymentDesc: string;
+  mobileApps: string;
+  mobileAppsDesc: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -68,7 +76,15 @@ export const translations: Record<Language, Translations> = {
     contactInfoUpwork: "Hire me on Upwork",
     contactInfoQuickStats: "Quick Stats",
     contactInfoprojectsCompleted: "Projects Completed",
-    contactInfoResponseTime: "Response Time"
+    contactInfoResponseTime: "Response Time",
+    webApps: "Web Apps",
+    webAppsDesc: "Modern, responsive web applications",
+    chromeExtensions: "Chrome Extensions",
+    chromeExtensionsDesc: "Browser extensions and plugins",
+    cloudDeployment: "Cloud Deployment",
+    cloudDeploymentDesc: "Scalable cloud infrastructure",
+    mobileApps: "Mobile Apps",
+    mobileAppsDesc: "iOS and Android applications"
   },
   fr: {
     name: "Mohamed Cherif",
@@ -102,7 +118,15 @@ export const translations: Record<Language, Translations> = {
     contactInfoUpwork: "Engagez-moi sur Upwork",
     contactInfoQuickStats: "Statistiques Rapides",
     contactInfoprojectsCompleted: "Projets Réalisés",
-    contactInfoResponseTime: "Temps de Réponse"
+    contactInfoResponseTime: "Temps de Réponse",
+    webApps: "Applications Web",
+    webAppsDesc: "Applications web modernes et responsives",
+    chromeExtensions: "Extensions Chrome",
+    chromeExtensionsDesc: "Extensions et plugins navigateur",
+    cloudDeployment: "Déploiement Cloud",
+    cloudDeploymentDesc: "Infrastructure cloud évolutive",
+    mobileApps: "Apps Mobile",
+    mobileAppsDesc: "Applications iOS et Android"
   },
   ar: {
     name: "محمد الشريف",
@@ -136,6 +160,14 @@ export const translations: Record<Language, Translations> = {
     contactInfoUpwork: "استأجرني على Upwork",
     contactInfoQuickStats: "إحصائيات سريعة",
     contactInfoprojectsCompleted: "المشاريع المكتملة",
-    contactInfoResponseTime: "زمن الاستجابة"
+    contactInfoResponseTime: "زمن الاستجابة",
+    webApps: "تطبيقات الويب",
+    webAppsDesc: "تطبيقات ويب حديثة ومتجاوبة",
+    chromeExtensions: "ملحقات كروم",
+    chromeExtensionsDesc: "ملحقات وإضافات المتصفح",
+    cloudDeployment: "النشر السحابي",
+    cloudDeploymentDesc: "بنية تحتية سحابية قابلة للتوسع",
+    mobileApps: "تطبيقات الهاتف",
+    mobileAppsDesc: "تطبيقات iOS و Android"
   }
 };

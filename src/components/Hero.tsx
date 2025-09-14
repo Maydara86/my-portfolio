@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import { useTheme } from '@/context/ThemeContext';
 import { useTranslation } from '@/hooks/useTranslation';
 
@@ -9,14 +8,15 @@ const Hero = () => {
   const { theme, isRTL } = useTheme();
   const { t } = useTranslation();
 
-  // Parallax effect for hero image
+  // Parallax effect for service cards
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
-      const heroImage = document.querySelector('.hero-image');
-      if (heroImage) {
-        (heroImage as HTMLElement).style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
+      const serviceCards = document.querySelectorAll('.service-card');
+      serviceCards.forEach((card, index) => {
+        const speed = 0.1 + (index * 0.05);
+        (card as HTMLElement).style.transform = `translateY(${scrolled * speed}px)`;
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -37,16 +37,43 @@ const Hero = () => {
     }
   };
 
+  const services = [
+    {
+      icon: '🌐',
+      titleKey: 'webApps',
+      descKey: 'webAppsDesc',
+      gradient: 'from-blue-500 to-cyan-500'
+    },
+    {
+      icon: '🔌',
+      titleKey: 'chromeExtensions',
+      descKey: 'chromeExtensionsDesc',
+      gradient: 'from-purple-500 to-pink-500'
+    },
+    {
+      icon: '☁️',
+      titleKey: 'cloudDeployment',
+      descKey: 'cloudDeploymentDesc',
+      gradient: 'from-green-500 to-teal-500'
+    },
+    {
+      icon: '📱',
+      titleKey: 'mobileApps',
+      descKey: 'mobileAppsDesc',
+      gradient: 'from-orange-500 to-red-500'
+    }
+  ];
+
   return (
-    <section className={`relative min-h-screen flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'bg-gray-700' : 'text-gray-50'}`}>
+    <section className={`relative min-h-screen flex items-center justify-center overflow-hidden ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50'}`}>
       <div className={`container mx-auto px-6 py-20 mt-16`}>
         <div className={`grid lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-cols-2' : ''}`}>
 
           {/* Text Content */}
           <div className={`${
-            isRTL ? 'lg:order-2 text-right' : 'text-left'
+            isRTL ? 'text-right' : 'text-left'
           } space-y-6 fade-in`}>
-            <h1 className={`text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r ${
+            <h1 className={`text-5xl lg:text-6xl font-bold leading-normal pb-2 bg-gradient-to-r ${
               theme === 'dark'
                 ? 'from-blue-400 via-purple-400 to-pink-400'
                 : 'from-blue-600 via-purple-600 to-pink-600'
@@ -65,7 +92,7 @@ const Hero = () => {
                 onClick={scrollToContact}
                 className={`px-8 py-3 text-white rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg font-medium ${
                   theme === 'dark'
-                    ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900/70 border border-gray-700 backdrop-blur-sm hover:from-gray-900 hover:to-gray-900/70'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
                     : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700'
                 }`}
               >
@@ -85,33 +112,67 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Service Cards */}
           <div className={`${isRTL ? 'lg:order-1' : ''} relative`}>
-            <div className="hero-image relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl parallax">
-              <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face"
-                alt="Mohamed Cherif - Full-Stack Developer"
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <div className="grid grid-cols-2 gap-4 lg:gap-6">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={`service-card p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-rotate-1 ${
+                    theme === 'dark'
+                      ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700'
+                      : 'bg-white border border-gray-200 hover:bg-gray-50'
+                  } shadow-lg hover:shadow-2xl group`}
+                  style={{
+                    animationDelay: `${index * 0.1}s`
+                  }}
+                >
+                  {/* Icon */}
+                  <div className={`w-12 h-12 mb-4 rounded-lg bg-gradient-to-r ${service.gradient} flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {service.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className={`text-lg font-semibold mb-2 ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  } group-hover:bg-gradient-to-r group-hover:${service.gradient} group-hover:bg-clip-text transition-all duration-300`}>
+                    {t[service.titleKey] || service.titleKey}
+                  </h3>
+
+                  {/* Description */}
+                  <p className={`text-sm ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                  } leading-relaxed`}>
+                    {t[service.descKey] || service.descKey}
+                  </p>
+
+                  {/* Hover Effect Background */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
+                </div>
+              ))}
             </div>
 
-            {/* Decorative Background */}
-            <div className={`absolute -z-10 top-8 ${
+            {/* Decorative Background Elements */}
+            <div className={`absolute -z-10 -top-8 ${
               isRTL ? 'left-8' : 'right-8'
-            } w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl`}></div>
+            } w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-2xl animate-pulse`}></div>
 
-            {/* Floating Elements */}
+            <div className={`absolute -z-10 -bottom-8 ${
+              isRTL ? 'right-8' : 'left-8'
+            } w-24 h-24 bg-gradient-to-br from-pink-500/20 to-orange-500/20 rounded-full blur-xl animate-bounce`}></div>
+
+            {/* Floating geometric shapes */}
             <div className={`absolute -top-4 ${
               isRTL ? 'left-4' : 'right-4'
-            } w-20 h-20 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full opacity-20 animate-pulse`}></div>
+            } w-8 h-8 border-2 ${
+              theme === 'dark' ? 'border-blue-400' : 'border-blue-600'
+            } rotate-45 opacity-30 animate-spin`}></div>
 
             <div className={`absolute -bottom-6 ${
-              isRTL ? 'right-8' : 'left-8'
-            } w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full opacity-30 animate-bounce`}></div>
+              isRTL ? 'right-12' : 'left-12'
+            } w-6 h-6 ${
+              theme === 'dark' ? 'bg-purple-400' : 'bg-purple-600'
+            } rounded-full opacity-40 animate-ping`}></div>
           </div>
         </div>
       </div>
