@@ -34,7 +34,7 @@ export const projects: Project[] = [
     id: 'etl-app',
     title: 'MakeItOne an ETL app',
     description: 'A fully fledge ETL application developed with React and Spring Boot, it includes a designer canvas page that supports nodes drag & drop, wiring nodes, data manipulation, save and export feature and so much more',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&crop=center',
+    image: '/images/MakeItOne.jpg',
     link: 'https://demo-restaurant.com',
     github: 'https://github.com/mohamed-cherif/restaurant-site',
     technologies: ['React', 'react-flow', 'Material-UI', 'redux-toolkit', 'Spring Boot', 'Microsoft SQL Server'],

@@ -88,41 +88,15 @@ const Portfolio = () => {
             >
 
               {/* Project Image */}
-              <div className="relative overflow-hidden h-48 cursor-pointer" onClick={() => openModal(project)}>
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+              <div className="relative overflow-hidden h-48 cursor-pointer bg-white flex items-center justify-center" onClick={() => openModal(project)}>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-contain group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                {/* Hover Overlay */}
-                {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className={`flex gap-4 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white/90 hover:bg-white text-gray-900 rounded-full transition-colors duration-200"
-                      aria-label="View live project"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-white/90 hover:bg-white text-gray-900 rounded-full transition-colors duration-200"
-                        aria-label="View source code"
-                      >
-                        <Github className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
-                </div> */}
               </div>
 
               {/* Project Info */}
@@ -195,15 +169,15 @@ const Portfolio = () => {
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           {selectedProject && (
             <div className={`flex flex-col md:flex-row gap-6`}>
-              <div className="relative w-full md:w-1/2 h-64 md:h-auto rounded-md overflow-hidden">
+                <div className="relative w-full md:w-1/2 h-64 md:h-auto rounded-md overflow-hidden">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              </div>
+                </div>
 
               <div className="w-full md:w-1/2">
                 <h3 className="text-2xl font-bold mb-2">{selectedProject.title}</h3>
