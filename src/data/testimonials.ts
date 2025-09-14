@@ -25,7 +25,7 @@ export const testimonials: Testimonial[] = [
     name: 'Jamel Arfaoui',
     role: 'Journaliste et Rédacteur en Chef',
     company: 'Tunisie Telegraph',
-    content: 'Working with Mohamed was a pleasure. He understood our requirements perfectly and delivered a scalable solution that has significantly improved our workflow efficiency.',
+    content: 'Travailler avec Mohamed a été une excellente expérience. Il a su comprendre nos besoins et livrer un site de news moderne, fluide et parfaitement adapté à notre audience. La mise en ligne s’est faite dans les délais, avec une attention particulière portée à la performance et à la simplicité d’utilisation. Nous sommes très satisfaits du résultat et recommandons vivement ses services !',
     rating: 5,
     avatar: '/images/Jamal.jpg',
     date: '2024-02-03'

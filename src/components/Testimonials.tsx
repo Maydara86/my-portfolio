@@ -11,15 +11,18 @@ const Testimonials = () => {
   const { theme, isRTL } = useTheme();
   const { t } = useTranslation();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   // Auto-slide testimonials
   useEffect(() => {
+    if (isHovered) return;
+
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000); // Changed to 5 seconds for better reading time
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -34,7 +37,11 @@ const Testimonials = () => {
   };
 
   return (
-    <section className={`py-20 ${theme === 'dark' ? 'bg-gray-700' : 'text-gray-50'}`}>
+    <section
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`py-20 ${theme === 'dark' ? 'bg-gray-700' : 'text-gray-50'}`}
+    >
       <div className="container mx-auto px-6">
 
         {/* Section Header */}
@@ -74,9 +81,7 @@ const Testimonials = () => {
                     </div>
 
                     {/* Rating Stars */}
-                    <div className={`flex ${
-                      isRTL ? 'flex-row-reverse justify-end' : 'justify-center'
-                    } mb-6 mt-4`}>
+                    <div className={`flex justify-center mb-6 mt-4`}>
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <span key={i} className="text-yellow-400 text-2xl">★</span>
                       ))}
@@ -85,16 +90,12 @@ const Testimonials = () => {
                     {/* Testimonial Content */}
                     <blockquote className={`text-lg lg:text-xl ${
                       theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-                    } mb-8 italic leading-relaxed ${
-                      isRTL ? 'text-right' : 'text-center'
-                    }`}>
+                    } mb-8 italic leading-relaxed text-center`}>
                       &quot;{testimonial.content}&quot;
                     </blockquote>
 
                     {/* Client Info */}
-                    <div className={`flex ${
-                      isRTL ? 'flex-row-reverse' : 'flex-row'
-                    } items-center ${isRTL ? '' : 'justify-center'} gap-4`}>
+                    <div className={`flex items-center justify-center gap-4`}>
                       {testimonial.avatar && (
                         <div className="relative w-16 h-16 rounded-full overflow-hidden">
                           <Image
@@ -130,7 +131,7 @@ const Testimonials = () => {
               isRTL ? 'right-4' : 'left-4'
             } ${
               theme === 'dark'
-                ? 'bg-gray-800 hover:bg-gray-700 text-white'
+                ? 'bg-gray-800 hover:bg-gray-700 text-white shadow-gray-900'
                 : 'bg-white hover:bg-gray-50 text-gray-900'
             } p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110`}
             aria-label="Previous testimonial"
@@ -144,7 +145,7 @@ const Testimonials = () => {
               isRTL ? 'left-4' : 'right-4'
             } ${
               theme === 'dark'
-                ? 'bg-gray-800 hover:bg-gray-700 text-white'
+                ? 'bg-gray-800 hover:bg-gray-700 text-white shadow-gray-900'
                 : 'bg-white hover:bg-gray-50 text-gray-900'
             } p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110`}
             aria-label="Next testimonial"
@@ -160,15 +161,40 @@ const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => goToTestimonial(index)}
-                className={`transition-all duration-200 rounded-full ${
-                  currentTestimonial === index
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 w-8 h-3'
-                    : theme === 'dark'
-                      ? 'bg-gray-600 hover:bg-gray-500 w-3 h-3'
-                      : 'bg-gray-300 hover:bg-gray-400 w-3 h-3'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
+                className="relative"
+              >
+                <div
+                  className={`transition-all duration-200 rounded-full ${
+                    currentTestimonial === index
+                      ? 'w-8'
+                      : 'w-3'
+                  } h-3 ${
+                    theme === 'dark'
+                      ? 'bg-gray-600'
+                      : 'bg-gray-300'
+                  }`}
+                />
+                {currentTestimonial === index && (
+                  <div
+                    key={`progress-${currentTestimonial}`}
+                    className="absolute inset-0 rounded-full overflow-hidden w-8"
+                  >
+                    <div
+                      className="h-full w-full bg-gradient-to-r from-blue-600 to-purple-600"
+                      style={{
+                        animation: 'bulletProgress 5s linear forwards',
+                        animationPlayState: isHovered ? 'paused' : 'running',
+                        transformOrigin: isRTL ? 'right' : 'left'
+                      }}
+                      onAnimationEnd={() => {
+                        if (!isHovered) {
+                          setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                        }
+                      }}
+                    />
+                  </div>
+                )}
+              </button>
             ))}
           </div>
         </div>
